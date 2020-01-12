@@ -1,6 +1,7 @@
 package com.github.joristruong
 
 import com.github.joristruong.entity.{Champ, Player, Stats}
+import com.github.joristruong.factory.CrossDataFactory
 import com.jcdecaux.setl.Setl
 
 object App {
@@ -17,6 +18,7 @@ object App {
 
     setl
       .newPipeline()
+      .addStage[CrossDataFactory]()
       .describe()
       .run()
   }
