@@ -6,7 +6,7 @@ import com.jcdecaux.setl.util.HasSparkSession
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.{DataFrame, Dataset}
 
-class TotalStatsTransformers(crossData: Dataset[ChampStats]) extends Transformer[DataFrame] with HasSparkSession {
+class TotalStatsTransformers(crossData: Dataset[ChampStats], champTimesPlayed: DataFrame) extends Transformer[DataFrame] with HasSparkSession {
 
   import spark.implicits._
 
@@ -21,7 +21,10 @@ class TotalStatsTransformers(crossData: Dataset[ChampStats]) extends Transformer
         sum("kills") as "kills",
         sum("deaths") as "deaths"
       )
-      .sort($"deaths".desc, $"championId".asc)
+      .join(champTimesPlayed, Seq("name"))
+      .withColumn("normalizedKills", $"kills" / $"gamesNumber")
+      .withColumn("normalizedDeaths", $"deaths" / $"gamesNumber")
+      .sort($"deaths".desc, $"normalizedDeaths".desc, $"championId".asc)
 
     transformedData = totalStats
 
