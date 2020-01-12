@@ -21,7 +21,7 @@ class TotalStatsTransformers(crossData: Dataset[ChampStats]) extends Transformer
         sum("kills") as "kills",
         sum("deaths") as "deaths"
       )
-      .sort($"championId", $"deaths".desc)
+      .sort($"deaths".desc, $"championId".asc)
 
     transformedData = totalStats
 
