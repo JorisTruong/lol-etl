@@ -15,6 +15,8 @@ object App {
       .setSparkRepository[Player]("playersRepository", deliveryId = "playersRepo")
       .setSparkRepository[Stats]("statsRepository", deliveryId = "statsRepo")
 
+      .setConnector("champPlayersConnector", deliveryId = "champPlayersConn")
+
       .setSparkRepository[ChampStats]("champStatsRepository", deliveryId = "champStatsRepo")
       .setConnector("killsDeathsConnector", deliveryId = "killsDeathsConn")
 
