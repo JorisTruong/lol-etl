@@ -1,6 +1,6 @@
 package com.github.joristruong
 
-import com.github.joristruong.entity.Champ
+import com.github.joristruong.entity.{Champ, Player, Stats}
 import com.jcdecaux.setl.Setl
 
 object App {
@@ -8,6 +8,12 @@ object App {
     val setl = Setl.builder()
       .withDefaultConfigLoader()
       .getOrCreate()
+
+    setl
+      .setSparkRepository[Champ]("champsRepository", deliveryId = "champsRepo")
+      .setSparkRepository[Player]("playersRepository", deliveryId = "playersRepo")
+      .setSparkRepository[Stats]("statsRepository", deliveryId = "statsRepo")
+
 
     setl
       .newPipeline()
