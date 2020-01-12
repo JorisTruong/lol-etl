@@ -7,17 +7,21 @@ import org.apache.spark.sql.functions._
 import org.apache.spark.sql.{DataFrame, Dataset}
 
 class TotalStatsTransformers(crossData: Dataset[ChampStats]) extends Transformer[DataFrame] with HasSparkSession {
+
+  import spark.implicits._
+
   var transformedData: DataFrame = _
 
   override def transformed: DataFrame = transformedData
 
   override def transform(): TotalStatsTransformers.this.type = {
     val totalStats = crossData
-      .groupBy("name")
+      .groupBy("name", "championId")
       .agg(
         sum("kills") as "kills",
         sum("deaths") as "deaths"
       )
+      .sort($"championId", $"deaths".desc)
 
     transformedData = totalStats
 
