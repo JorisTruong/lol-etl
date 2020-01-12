@@ -1,4 +1,4 @@
-package com.github.joristruong.transformer
+package com.github.joristruong.transformer.CrossDataTransformer
 
 import com.github.joristruong.entity.Stats
 import com.jcdecaux.setl.transformation.Transformer

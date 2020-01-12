@@ -1,7 +1,7 @@
 package com.github.joristruong.factory
 
 import com.github.joristruong.entity.{Champ, Player, Stats}
-import com.github.joristruong.transformer.{ChampionPlayerTransformer, PlayerStatsTransformer}
+import com.github.joristruong.transformer.CrossDataTransformer.{ChampionPlayerTransformer, PlayerStatsTransformer}
 import com.jcdecaux.setl.annotation.Delivery
 import com.jcdecaux.setl.storage.repository.SparkRepository
 import com.jcdecaux.setl.transformation.Factory
