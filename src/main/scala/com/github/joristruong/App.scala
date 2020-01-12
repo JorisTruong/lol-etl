@@ -1,6 +1,6 @@
 package com.github.joristruong
 
-import com.github.joristruong.entity.{Champ, Player, Stats}
+import com.github.joristruong.entity.{Champ, ChampStats, Player, Stats}
 import com.github.joristruong.factory.CrossDataFactory
 import com.jcdecaux.setl.Setl
 
@@ -15,6 +15,7 @@ object App {
       .setSparkRepository[Player]("playersRepository", deliveryId = "playersRepo")
       .setSparkRepository[Stats]("statsRepository", deliveryId = "statsRepo")
 
+      .setSparkRepository[ChampStats]("champStatsRepository", deliveryId = "champStatsRepo")
 
     setl
       .newPipeline()
