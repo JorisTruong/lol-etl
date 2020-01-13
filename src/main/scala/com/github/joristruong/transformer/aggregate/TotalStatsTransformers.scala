@@ -1,4 +1,4 @@
-package com.github.joristruong.transformer.AggregateTransformer
+package com.github.joristruong.transformer.aggregate
 
 import com.github.joristruong.entity.ChampStats
 import com.jcdecaux.setl.transformation.Transformer

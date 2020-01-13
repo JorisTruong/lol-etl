@@ -1,7 +1,7 @@
 package com.github.joristruong.factory
 
 import com.github.joristruong.entity.ChampStats
-import com.github.joristruong.transformer.AggregateTransformer.{ChampTimesPlayedTransformer, TotalStatsTransformers}
+import com.github.joristruong.transformer.aggregate.{ChampTimesPlayedTransformer, TotalStatsTransformers}
 import com.jcdecaux.setl.annotation.Delivery
 import com.jcdecaux.setl.storage.connector.Connector
 import com.jcdecaux.setl.storage.repository.SparkRepository
